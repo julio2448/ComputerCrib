@@ -3,5 +3,8 @@
   "private": "true",
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3"
   }
 }
