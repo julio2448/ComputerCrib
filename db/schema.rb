@@ -5,6 +5,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_214414) do
     t.date "start_date"
     t.date "end_date"
     t.float "total_price"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
