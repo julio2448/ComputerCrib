@@ -1,7 +1,12 @@
-<h1> Your current Offers</h1>
-<ul>
-<% @offers.each do |offer|%>
-<li><%= offer.brand%></li>
-<%end%>
-</ul>
-<%= link_to "New Offer",new_offer_path %>
+<div class="container mt-5">
+  <h1 class="mb-4">Your Current Offers</h1>
+  <ul>
+    <% @offers.each do |offer|%>
+      <li><%= offer.brand%></li>
+    <% end %>
+  </ul>
+  <div class="my-4">
+    <h2>Add New Offer</h2>
+    <%= link_to "New Offer",new_offer_path, class: "btn btn-primary" %>
+  </div>
+</div>
