@@ -33,10 +33,11 @@
         <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
         <div class="card-body">
           <div class="clearfix mb-3">
-            <span class="float-start badge rounded-pill bg-success"><%= offer.rate %></span>
-            <span class="float-end"><a href="#">Example</a></span>
+            <span class="float-start badge rounded-pill bg-success">$<%= offer.rate %>.00 MXN</span>
+            <span class="float-end"><a href="#"><%= link_to "Check Details", offer_path(offer) %></a></span>
           </div>
-          <h5 class="card-title"><%= offer.brand %></h5>
+          <h4 class="card-title"><%= offer.brand %></h4>
+          <h5 class="card-model"><%= offer.model %></h5>
           <div class="d-grid gap-2 my-4">
             <a href="#" class="btn btn-deep-orange">Check offer</a>
           </div>
