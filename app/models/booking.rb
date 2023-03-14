@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
   belongs_to :offer
-  has_many :users, dependent: :destroy
+  belongs_to :client, class_name: "User"
+  has_one :owner, through: :offer
 end
