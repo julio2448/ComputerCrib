@@ -1,0 +1,8 @@
+<h1> Your current Offers</h1>
+<ul>
+<% @offers.each do |offer|%>
+<li><%= offer.brand%></li>
+<%end%>
+</ul>
+<h2>Add new offer</h2>
+<%= link_to "New Offer",new_offer_path %>
