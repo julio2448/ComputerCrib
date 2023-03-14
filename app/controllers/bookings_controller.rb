@@ -7,11 +7,10 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
-    @booking.offer_id = @offer
-    @booking.total_price = @offer
-
+    @booking.offer_id = @offer.id
+    @booking.total_price= total_price
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to offer_booking_path(@offer, @booking)
     else
       render :new
     end
@@ -22,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def total_price
-    @offer.rate * (@booking.end_date - @booking.start_date)
+    @offer.rate * (@booking.end_date - @booking.start_date).to_i
   end
 
   private
