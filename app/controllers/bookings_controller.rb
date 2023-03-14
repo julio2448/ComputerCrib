@@ -1,8 +1,9 @@
 #what
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.find(params[:booking_id])
-    @booking = @booking.bookings.new
+    @booking = Booking.new
+    # @booking = Booking.find(params[:booking_id])
+    # @booking = @booking.bookings.new
   end
 
   def create
