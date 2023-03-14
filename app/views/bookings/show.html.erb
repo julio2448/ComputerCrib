@@ -3,5 +3,5 @@
 <p><strong>Owner:</strong> <%= @booking.id %></p>
 <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
 <p><strong>End Date:</strong> <%= @booking.end_date %></p>
-<h2><strong>End Date:</strong> <%= @booking.total_price %> MXN</h2>
+<h2><strong>TOTAL PRICE:</strong> <%= @booking.total_price %> MXN</h2>
 <h2><%= link_to "Delete Booking?", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>

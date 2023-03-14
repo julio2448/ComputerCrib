@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+puts "Creating users"
+User.create(email: "test02@gmail.com", password: 123456, password_confirmation: 123456)
+User.create(email: "test03@gmail.com", password: 123456, password_confirmation: 123456)
+User.create(email: "test04@gmail.com", password: 123456, password_confirmation: 123456)
+User.create(email: "test05@gmail.com", password: 123456, password_confirmation: 123456)
+User.create(email: "test06@gmail.com", password: 123456, password_confirmation: 123456)
+puts "Finished"
+
 puts "Creating offers..."
 Offer.create(brand: "Dell", model: "Inspiron 15", disc_space: "512GB SSD", video_card: "Intel Iris Xe", ram: 16, screen_size: 15.6, usage: 2, rate: 200, availability: 1, user_id: 1)
 
