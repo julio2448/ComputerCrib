@@ -1,8 +1,8 @@
 <div class="container mt-4">
-  <h1 class="text-center mb-4">ALL OFFERS</h1>
+  <h1 class="text-center mb-4">Your current Offers</h1>
   <div class="container-fluid bg-transparent my-4 p-3" style="position: relative;">
     <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-      <% @offers.each do |offer| %>
+      <% @my_offers.each do |offer| %>
       <div class="col">
 
         <div class="card h-100 shadow-sm">
@@ -24,7 +24,7 @@
       </div>
     <div class="text-center">
     <%= link_to "New Offer", new_offer_path, class: "btn btn-deep-orange custom-button" %>
-    <%= link_to "My Offers", my_offers_path, class: "btn btn-deep-orange custom-button" %>
     </div>
   </div>
 </div>
+<h2><%= link_to "Back to all OFFERS", :back %></h2>

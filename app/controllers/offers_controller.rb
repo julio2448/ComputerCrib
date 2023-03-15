@@ -4,6 +4,10 @@ class OffersController < ApplicationController
     @offers = Offer.all
   end
 
+  def my_offers
+    @my_offers = current_user.owned_offers
+  end
+
   def mylist
     current_user.owned.offers
   end
