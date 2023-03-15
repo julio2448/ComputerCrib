@@ -2,7 +2,13 @@
 <h3><%= @offer.brand%></h3>
 <h3><%= @offer.model%></h3>
 <h3><%= @offer.ram%></h3>
-
+<h3><%= @offer.disc_space%></h3>
+<h3><%= @offer.video_card%></h3>
+<h3><%= @offer.screen_size%></h3>
+<h3><%= @offer.usage%> YEARS</h3>
+<h3><%= @offer.rate%></h3>
+<h3><%= @offer.availability == 1? "Yes" : "No" %></h3>
+<h3>OWNER: <%= @offer.user.email %></h3>
 
 <h2><%= link_to "Return to offers List", offers_path %></h2>
 <h2><%= link_to "Book this offer", new_offer_booking_path(@offer) %></h2>

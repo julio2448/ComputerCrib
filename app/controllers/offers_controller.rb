@@ -4,6 +4,10 @@ class OffersController < ApplicationController
     @offers = Offer.all
   end
 
+  def mylist
+    current_user.owned.offers
+  end
+
   def show
     @offer = Offer.find(params[:id])
   end

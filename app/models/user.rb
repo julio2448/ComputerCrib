@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :owned_offers, foreign_key: :owner_id, class_name: 'Offer'
+  has_many :owned_offers, foreign_key: :user_id, class_name: 'Offer'
   has_many :owner_bookings, through: :owned_offers, source: :bookings
 
-  has_many :client_bookings, foreign_key: :client_id, class_name: 'Booking'
+  has_many :client_bookings, foreign_key: :user_id, class_name: 'Booking'
   has_many :booked_offers, through: :client_bookings, source: :offers
 end
