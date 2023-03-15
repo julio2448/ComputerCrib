@@ -6,13 +6,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = current_user.id
     @booking.offer_id = @offer.id
-    @booking.total_price= total_price
-    if @booking.save
+    @booking.total_price = total_price
+    if current_user
+      @booking.user_id = current_user.id
+      @booking.save
       redirect_to offer_booking_path(@offer, @booking)
     else
-      render :new
+      flash[:alert] = "You need to sign in"
+      redirect_to new_user_session_path
     end
   end
 
