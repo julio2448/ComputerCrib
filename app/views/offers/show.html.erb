@@ -2,6 +2,7 @@
 <h3><%= @offer.brand%></h3>
 <h3><%= @offer.model%></h3>
 <h3><%= @offer.ram%></h3>
+
 <h3><%= @offer.disc_space%></h3>
 <h3><%= @offer.video_card%></h3>
 <h3><%= @offer.screen_size%></h3>
@@ -9,6 +10,11 @@
 <h3><%= @offer.rate%></h3>
 <h3><%= @offer.availability == 1? "Yes" : "No" %></h3>
 <h3>OWNER: <%= @offer.user.email %></h3>
+<% if @offer.photo.key != nil %>
+  <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+    <%= image_tag 'https://res.cloudinary.com/dkkxkbhih/image/upload/v1678911558/No-Image-Placeholder.svg_tmw0tt.png', height: 200, width: 200, crop: :fill %>
+<% end %>
 
 <h2><%= link_to "Return to offers List", offers_path %></h2>
 <h2><%= link_to "Book this offer", new_offer_booking_path(@offer) %></h2>

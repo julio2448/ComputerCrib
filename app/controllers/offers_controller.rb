@@ -33,10 +33,6 @@ class OffersController < ApplicationController
   private
 
   def params_offer
-    params.require(:offer).permit(:brand, :model, :disc_space, :video_card, :ram, :screen_size, :usage, :rate, :availability)
+    params.require(:offer).permit(:brand, :model, :disc_space, :video_card, :ram, :screen_size, :usage, :rate, :availability, :photo)
   end
-
-  # def set_user
-  #   @user = User.find(params[:id])
-  # end
 end
