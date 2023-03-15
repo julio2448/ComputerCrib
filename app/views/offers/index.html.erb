@@ -14,7 +14,7 @@
             <h4 class="card-title"><%= offer.brand %></h4>
             <h5 class="card-model"><%= offer.model %></h5>
               <div class="d-grid gap-2 my-4">
-              <%= link_to "Check offer", offer_path(offer), class: "btn btn-deep-orange" %>
+              <%= link_to "Check offer", offer_path(offer), class: "btn btn-deep-orange custom-button" %>
               </div>
             </div>
           </div>
@@ -22,7 +22,7 @@
       <% end %>
       </div>
     <div class="text-center">
-    <%= link_to "New Offer", new_offer_path, class: "btn btn-deep-orange" %>
+    <%= link_to "New Offer", new_offer_path, class: "btn btn-deep-orange custom-button" %>
     </div>
   </div>
 </div>
