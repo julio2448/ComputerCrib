@@ -53,6 +53,6 @@ class OffersController < ApplicationController
   private
 
   def params_offer
-    params.require(:offer).permit(:brand, :model, :disc_space, :video_card, :ram, :screen_size, :usage, :rate, :photo)
+    params.require(:offer).permit(:brand, :model, :disc_space, :video_card, :ram, :screen_size, :usage, :rate, :photo, :address)
   end
 end
