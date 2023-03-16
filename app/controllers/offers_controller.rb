@@ -14,7 +14,7 @@ class OffersController < ApplicationController
     if current_user
       @my_offers = current_user.owned_offers
     else
-      flash[:alert] = "You need to sign in"
+      flash[:alert] = 'You need to sign in'
       redirect_to new_user_session_path
     end
   end
@@ -38,7 +38,7 @@ class OffersController < ApplicationController
       @offer.save
       redirect_to offer_path(@offer)
     else
-      flash[:alert] = "You need to sign in"
+      flash[:alert] = 'You need to sign in'
       redirect_to new_user_session_path
     end
   end
