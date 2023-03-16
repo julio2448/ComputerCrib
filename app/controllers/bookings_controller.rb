@@ -32,6 +32,19 @@ class BookingsController < ApplicationController
     @offer.rate * (@booking.end_date - @booking.start_date).to_i
   end
 
+  def select_booking
+    @booking = Booking.find(params[:id])
+    @offer = @booking.offer
+    @offer.bookings.each do |booking|
+      if booking != @booking
+        booking.destroy
+      end
+    end
+    @offer.availability = 0
+    @offer.save
+    redirect_to offer_path(@booking.offer), status: :see_other
+  end
+
   private
 
   def booking_params
