@@ -12,4 +12,12 @@ Rails.application.routes.draw do
       patch :approve, :reject
     end
   end
+
+  patch "select_booking/:id", to: "bookings#select_booking", as: :select_booking
+
+  resources :offers, only: :destroy do
+    member do
+      patch :approve, :reject
+    end
+  end
 end

@@ -11,7 +11,12 @@ class OffersController < ApplicationController
   end
 
   def my_offers
-    @my_offers = current_user.owned_offers
+    if current_user
+      @my_offers = current_user.owned_offers
+    else
+      flash[:alert] = "You need to sign in"
+      redirect_to new_user_session_path
+    end
   end
 
   def mylist
@@ -28,16 +33,20 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(params_offer)
+    if current_user
     @offer.user_id = current_user.id
-    if @offer.save
+      @offer.save
       redirect_to offer_path(@offer)
     else
-      render :new
+      flash[:alert] = "You need to sign in"
+      redirect_to new_user_session_path
     end
   end
 
   def destroy
+    @offer = Offer.find(params[:id])
     @offer.destroy
+    redirect_to my_offers_path, status: :see_other
   end
 
 
