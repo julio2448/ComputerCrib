@@ -3,23 +3,25 @@
   <div class="container-fluid bg-transparent my-4 p-3" style="position: relative;">
     <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
       <% @offers.each do |offer| %>
-      <div class="col">
+        <% if offer.availability == 1 %>
+        <div class="col">
 
-        <div class="card h-100 shadow-sm">
-          <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <div class="clearfix mb-3">
-              <span class="float-start badge rounded-pill bg-success">$<%= offer.rate %>.00 MXN</span>
-              <span class="float-end"><a href="#"><%= link_to "Check Details", offer_path(offer) %></a></span>
-            </div>
-            <h4 class="card-title"><%= offer.brand %></h4>
-            <h5 class="card-model"><%= offer.model %></h5>
-              <div class="d-grid gap-2 my-4">
-              <%= link_to "Check offer", offer_path(offer), class: "btn btn-deep-orange custom-button" %>
+          <div class="card h-100 shadow-sm">
+            <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <div class="clearfix mb-3">
+                <span class="float-start badge rounded-pill bg-success">$<%= offer.rate %>.00 MXN</span>
+                <span class="float-end"><a href="#"><%= link_to "Check Details", offer_path(offer) %></a></span>
+              </div>
+              <h4 class="card-title"><%= offer.brand %></h4>
+              <h5 class="card-model"><%= offer.model %></h5>
+                <div class="d-grid gap-2 my-4">
+                <%= link_to "Check offer", offer_path(offer), class: "btn btn-deep-orange custom-button" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+         <% end %>
       <% end %>
       </div>
     <div class="text-center">

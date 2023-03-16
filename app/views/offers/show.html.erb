@@ -18,3 +18,28 @@
 
 <h2><%= link_to "Return to offers List", offers_path %></h2>
 <h2><%= link_to "Book this offer", new_offer_booking_path(@offer) %></h2>
+<% if user_signed_in? %>
+  <% if current_user.id == @offer.user_id%>
+  <h2><%= link_to "Delete Offer?", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
+<%end%>
+
+<% if current_user.id == @offer.user_id%>
+<h2>Bookings for this Offer</h2>
+    <%if @offer.bookings.count > 0 %>
+      <% @offer.bookings.each do |booking|%>
+        <div>
+          <ul>
+            <li> <%= booking.user.email %>
+            <%= link_to "Choose this Booking?",select_booking_path(booking),data: {turbo_method: :patch, turbo_confirm: "Are you sure?"} %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    <%else%>
+      <div>
+        <h4><strong> No current offers!</strong></h4>
+       </div>
+    <% end %>
+<%end%>
+
+<% end %>
