@@ -1,24 +1,40 @@
-<h1><Strong>Computer Specs </Strong></h1>
-<h3><Strong> Brand: </Strong><%= @offer.brand%></h3>
-<h3><Strong> Model: </Strong><%= @offer.model%></h3>
-<h3><Strong> RAM:   </Strong><%= @offer.ram%></h3>
 
-<h3><Strong> Disk_Space:  </Strong><%= @offer.disc_space%></h3>
-<h3><Strong> Video Card: </Strong><%= @offer.video_card%></h3>
-<h3><Strong> Screen Size: </Strong><%= @offer.screen_size%></h3>
-<h3><Strong> Usage:  </Strong><%= @offer.usage%> YEARS</h3>
-<h3><Strong> Rate: </Strong><%= @offer.rate%></h3>
-<h3><Strong> Available: </Strong><%= @offer.availability == 1? "Yes" : "No" %></h3>
-<h3><Strong> OWNER: </Strong><%= @offer.user.email %></h3>
-<% if @offer.photo.key != nil %>
-  <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-    <%= image_tag 'https://res.cloudinary.com/dkkxkbhih/image/upload/v1678911558/No-Image-Placeholder.svg_tmw0tt.png', height: 200, width: 200, crop: :fill %>
-<% end %>
-
-<h2><%= link_to "Return to offers List", offers_path %></h2>
-<h2><%= link_to "Book this offer", new_offer_booking_path(@offer) %></h2>
-<% if user_signed_in? %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card shadow">
+        <img class="card-img-top" src="<%= @offer.photo.key != nil ? cl_image_path(@offer.photo.key, height: 300, width: 400, crop: :fill) : 'https://res.cloudinary.com/dkkxkbhih/image/upload/v1678911558/No-Image-Placeholder.svg_tmw0tt.png' %>" alt="Offer Image">
+        <div class="card-body">
+          <h1 class="card-title mb-4"><Strong>Computer Specs </Strong></h1>
+          <div class="row">
+            <div class="col-md-6">
+              <h3><Strong> Brand: </Strong><%= @offer.brand%></h3>
+              <h3><Strong> Model: </Strong><%= @offer.model%></h3>
+              <h3><Strong> RAM:   </Strong><%= @offer.ram%></h3>
+              <h3><Strong> Disk Space:  </Strong><%= @offer.disc_space%></h3>
+            </div>
+            <div class="col-md-6">
+              <h3><Strong> Video Card: </Strong><%= @offer.video_card%></h3>
+              <h3><Strong> Screen Size: </Strong><%= @offer.screen_size%></h3>
+              <h3><Strong> Usage:  </Strong><%= @offer.usage%> YEARS</h3>
+              <h3><Strong> Rate: </Strong>$<%= @offer.rate%>.00 MXN</h3>
+            </div>
+          </div>
+          <hr>
+          <h3><Strong> Available: </Strong><%= @offer.availability == 1 ? "Yes" : "No" %></h3>
+          <h3><Strong> OWNER: </Strong><%= @offer.user.email %></h3>
+          <% if @offer.photo.key != nil %>
+          <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+            <%= image_tag 'https://res.cloudinary.com/dkkxkbhih/image/upload/v1678911558/No-Image-Placeholder.svg_tmw0tt.png', height: 200, width: 200, crop: :fill %>
+          <% end %>
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <%= link_to "Return to offers List", offers_path, class: "btn btn-deep-orange custom-button btn-lg btn-block" %>
+            </div>
+            <div class="col-md-6">
+              <%= link_to "Book this offer", new_offer_booking_path(@offer), class: "btn btn-deep-orange custom-button btn-lg btn-block" %>
+              <% if user_signed_in? %>
   <% if current_user.id == @offer.user_id%>
   <h2><%= link_to "Delete Offer?", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></h2>
 <%end%>
@@ -43,3 +59,10 @@
 <%end%>
 
 <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
