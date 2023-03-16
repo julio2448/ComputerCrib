@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   # before_action :set_user, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new]
   def index
     @offers = Offer.all
     @markers = @offers.geocoded.map do |offer|
@@ -33,13 +34,12 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(params_offer)
-    if current_user
     @offer.user_id = current_user.id
-      @offer.save
+    @offer.availability = 1
+    if @offer.save
       redirect_to offer_path(@offer)
     else
-      flash[:alert] = 'You need to sign in'
-      redirect_to new_user_session_path
+    render :new, status: :unprocessable_entity
     end
   end
 
@@ -53,6 +53,6 @@ class OffersController < ApplicationController
   private
 
   def params_offer
-    params.require(:offer).permit(:brand, :model, :disc_space, :video_card, :ram, :screen_size, :usage, :rate, :availability, :photo)
+    params.require(:offer).permit(:brand, :model, :disc_space, :video_card, :ram, :screen_size, :usage, :rate, :photo)
   end
 end
