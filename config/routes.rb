@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#index"
+  root to: "pages#home"
   get "/offers/my_offers", to: "offers#my_offers", as: :my_offers
   resources :dashboard, only: :show
   resources :offers do
