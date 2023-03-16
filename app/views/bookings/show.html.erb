@@ -9,5 +9,7 @@
       <h2><strong>TOTAL PRICE:</strong> <%= @booking.total_price %> MXN</h2>
       <h2><%= link_to "Delete Booking?", booking_path(@booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %></h2>
     </div>
+    <hr>
+<h3> THANK YOU FOR YOUR TIME, WE ARE WAITING FOR <strong><%= @booking.offer.user.email %></strong> APROVAL </h3>
   </div>
 </div>

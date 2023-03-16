@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_offer, only: %i[new create total_price]
+  before_action :authenticate_user!, only: [:new]
+
   def new
     @booking = Booking.new
   end
@@ -8,13 +10,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.offer_id = @offer.id
     @booking.total_price = total_price
-    if current_user
-      @booking.user_id = current_user.id
-      @booking.save
+    @booking.user_id = current_user.id
+    if @booking.save
       redirect_to offer_booking_path(@offer, @booking)
     else
-      flash[:alert] = "You need to sign in"
-      redirect_to new_user_session_path
+      render :new, status: :unprocessable_entity
     end
   end
 
