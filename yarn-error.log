@@ -1,10 +1,8 @@
 Arguments: 
-  /home/paul/.nvm/versions/node/v16.15.1/bin/node /home/paul/.nvm/versions/node/v16.15.1/bin/yarn add @hotwired/turbo-rails
-  
-  `
+  /Users/juliovazquez/.nvm/versions/node/v16.15.1/bin/node /Users/juliovazquez/.nvm/versions/node/v16.15.1/bin/yarn add mapboxgl
 
 PATH: 
-  /home/paul/.rbenv/shims:/home/paul/.rbenv/shims:/home/paul/.rbenv/shims:./bin:./node_modules/.bin:/home/paul/.nvm/versions/node/v16.15.1/bin:/home/paul/.rbenv/shims:/home/paul/.rbenv/bin:/home/paul/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/pAnto/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/pAnto/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/pAnto/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/pAnto/AppData/Local/Programs/Microsoft VS Code/bin:/usr/local/sbin
+  ./bin:./node_modules/.bin:/Users/juliovazquez/.nvm/versions/node/v16.15.1/bin:/Users/juliovazquez/.rbenv/shims:/Users/juliovazquez/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/juliovazquez/.pyenv/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:./bin:./node_modules/.bin:/Users/juliovazquez/.nvm/versions/node/v16.15.1/bin:/Users/juliovazquez/.rbenv/shims:/Users/juliovazquez/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/juliovazquez/.pyenv/bin:/usr/local/sbin:/usr/local/sbin
 
 Yarn version: 
   1.22.19
@@ -13,16 +11,16 @@ Node version:
   16.15.1
 
 Platform: 
-  linux x64
+  darwin arm64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@hotwired%2fturbo-rails%0A%0A%60: Not found
-      at Request.params.callback [as _callback] (/home/paul/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:66145:18)
-      at Request.self.callback (/home/paul/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:140890:22)
+  Error: https://registry.yarnpkg.com/mapboxgl: Not found
+      at Request.params.callback [as _callback] (/Users/juliovazquez/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/Users/juliovazquez/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:527:28)
-      at Request.<anonymous> (/home/paul/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.<anonymous> (/Users/juliovazquez/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:141862:10)
       at Request.emit (node:events:527:28)
-      at IncomingMessage.<anonymous> (/home/paul/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at IncomingMessage.<anonymous> (/Users/juliovazquez/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:141784:12)
       at Object.onceWrapper (node:events:641:28)
       at IncomingMessage.emit (node:events:539:35)
       at endReadableNT (node:internal/streams/readable:1345:12)
@@ -36,6 +34,7 @@ npm manifest:
       "build": "webpack --config webpack.config.js"
     },
     "dependencies": {
+      "@hotwired/turbo-rails": "^7.3.0",
       "bootstrap": "^5.2.3",
       "stimulus": "^3.2.1"
     },
@@ -67,6 +66,19 @@ Lockfile:
     version "3.2.1"
     resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.2.1.tgz#e3de23623b0c52c247aba4cd5d530d257008676b"
     integrity sha512-HGlzDcf9vv/EQrMJ5ZG6VWNs8Z/xMN+1o2OhV1gKiSG6CqZt5MCBB1gRg5ILiN3U0jEAxuDTNPRfBcnZBDmupQ==
+  
+  "@hotwired/turbo-rails@^7.3.0":
+    version "7.3.0"
+    resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.3.0.tgz#422c21752509f3edcd6c7b2725bbe9e157815f51"
+    integrity sha512-fvhO64vp/a2UVQ3jue9WTc2JisMv9XilIC7ViZmXAREVwiQ2S4UC7Go8f9A1j4Xu7DBI6SbFdqILk5ImqVoqyA==
+    dependencies:
+      "@hotwired/turbo" "^7.3.0"
+      "@rails/actioncable" "^7.0"
+  
+  "@hotwired/turbo@^7.3.0":
+    version "7.3.0"
+    resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.3.0.tgz#2226000fff1aabda9fd9587474565c9929dbf15d"
+    integrity sha512-Dcu+NaSvHLT7EjrDrkEmH4qET2ZJZ5IcCWmNXxNQTBwlnE5tBZfN6WxZ842n5cHV52DH/AKNirbPBtcEXDLW4g==
   
   "@jridgewell/gen-mapping@^0.3.0":
     version "0.3.2"
@@ -107,6 +119,11 @@ Lockfile:
     dependencies:
       "@jridgewell/resolve-uri" "3.1.0"
       "@jridgewell/sourcemap-codec" "1.4.14"
+  
+  "@rails/actioncable@^7.0":
+    version "7.0.4"
+    resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.4.tgz#70a3ca56809f7aaabb80af2f9c01ae51e1a8ed41"
+    integrity sha512-tz4oM+Zn9CYsvtyicsa/AwzKZKL+ITHWkhiu7x+xF77clh2b4Rm+s6xnOgY/sGDWoFWZmtKsE95hxBPkgQQNnQ==
   
   "@types/eslint-scope@^3.7.3":
     version "3.7.4"

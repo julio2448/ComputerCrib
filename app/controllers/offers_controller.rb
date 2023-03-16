@@ -2,6 +2,12 @@ class OffersController < ApplicationController
   # before_action :set_user, only: [:new, :create]
   def index
     @offers = Offer.all
+    @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude
+      }
+    end
   end
 
   def my_offers
