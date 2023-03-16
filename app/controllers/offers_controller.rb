@@ -2,7 +2,11 @@ class OffersController < ApplicationController
   # before_action :set_user, only: [:new, :create]
   before_action :authenticate_user!, only: [:new]
   def index
-    @offers = Offer.all
+    if params[:query].present?
+      @offers = Offer.where('brand ILIKE ?', "%#{params[:query]}%")
+    else
+      @offers = Offer.all
+    end
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
