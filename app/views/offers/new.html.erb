@@ -3,7 +3,8 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Add an offer</h3>
-        <%= simple_form_for [@offer] do |f| %>
+        <%= simple_form_for @offer do |f| %>
+          <%= f.input :address, placeholder: 'Enter a Street Name, City' %>
           <%= f.input :brand, placeholder: 'Enter a brand' %>
           <%= f.input :model, placeholder: 'Enter a model' %>
           <%= f.input :disc_space, placeholder: 'Enter  disc_space' %>
