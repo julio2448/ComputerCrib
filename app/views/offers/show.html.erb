@@ -21,13 +21,23 @@
           <hr>
           <h3><Strong> Available: </Strong><%= @offer.availability == 1 ? "Yes" : "No" %></h3>
           <h3><Strong> OWNER: </Strong><%= @offer.user.email %></h3>
-          <% if @offer.photo.key != nil %>
-            <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-            <%= image_tag 'https://res.cloudinary.com/dkkxkbhih/image/upload/v1678911558/No-Image-Placeholder.svg_tmw0tt.png', height: 200, width: 200, crop: :fill %>
-          <% end %>
-            <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <% if @offer.photo.key != nil %>
+                <%= cl_image_tag @offer.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag 'https://res.cloudinary.com/dkkxkbhih/image/upload/v1678911558/No-Image-Placeholder.svg_tmw0tt.png', height: 200, width: 200, crop: :fill %>
+              <% end %>
+            </div>
+              <div class="col-md-6">
+                 <div style="width: 100%; height: 300px; margin-top: 0px; margin-bottom: 20px;"
+                  data-controller="map"
+                  data-map-markers-value="<%= @markers.to_json %>"
+                  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+          </div>
           <div class="row mt-4">
+            <hr>
             <div class="col-md-6" style="margin-top: 25px;">
               <%= link_to "Return to offers List", offers_path, class: "btn btn-deep-orange custom-button btn-lg btn-block" %>
             </div>
@@ -59,7 +69,6 @@
                       </div>
                     <% end %>
                   </div>
-                <hr>
                 </div>
                 <% if current_user.id == @offer.user_id %>
                   <div class="col-md-12" style="margin-top: 25px;">
