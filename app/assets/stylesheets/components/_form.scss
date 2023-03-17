@@ -5,9 +5,17 @@
 
 .form-group label {
   margin-right: 1rem;
-  width: 80px;
+  width: 200px;
 }
 
 .form-group input[type="text"] {
   flex: 1;
+}
+
+.email {
+  width: 90%;
+}
+
+.password {
+  width: 90%;
 }
