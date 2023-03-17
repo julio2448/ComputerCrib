@@ -53,6 +53,13 @@ class OffersController < ApplicationController
     redirect_to my_offers_path, status: :see_other
   end
 
+  def search
+    map.addControl(
+      placeholder: "Search for a location",
+      position: "top-left",
+      countries: "us"
+    )
+  end
 
   private
 
