@@ -7,7 +7,11 @@
         <div class="col">
 
           <div class="card h-100 shadow-sm">
-            <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
+            <% if offer.photo.attached? %>
+              <%= cl_image_tag offer.photo.key, class: "card-img-top" %>
+            <% else %>
+              <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
+            <% end %>
             <div class="card-body">
               <div class="clearfix mb-3">
                 <span class="float-start badge rounded-pill bg-success">$<%= offer.rate %>.00 MXN</span>
@@ -24,9 +28,9 @@
         <%end%>
       <% end %>
       </div>
-    <div class="text-center">
-    <%= link_to "New Offer", new_offer_path, class: "btn btn-deep-orange custom-button" %>
+    <div class="text-center" style= "margin-top: 25px;">
+      <%= link_to "New Offer", new_offer_path, class: "btn btn-deep-orange custom-button" %>
+      <%= link_to "Back to all OFFERS",offers_path, class: "btn btn-deep-orange custom-button" %>
     </div>
   </div>
 </div>
-<h2><%= link_to "Back to all OFFERS",offers_path %></h2>
